@@ -17,6 +17,7 @@
     "classnames": "^2.5.1",
     "customize-cra": "^1.0.0",
     "frontend": "file:",
+    "motion": "^12.4.11",
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
