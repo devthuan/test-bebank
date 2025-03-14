@@ -1,27 +1,16 @@
 import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
-import Header from "../../layouts/components/Header/Header";
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { PlusIcon } from "../../components/Icons";
 import DragToScroll from "../../components/DragToScroll/DragToScroll";
 import LineRow from "../../components/LineRow/LineRow";
 import Accordion from "../../components/Accordion/Accordion";
 import HealthBlog from "../../components/HealthBlog/HealthBlog";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
-import Support from "../../components/Support/Support";
-import Footer from "../../components/Footer/Footer";
 
 const cx = classNames.bind(styles);
 const Home = () => {
-  const [rotation, setRotation] = useState(0);
-  const [scale, setScale] = useState(1);
-
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const targetRef = useRef(null);
-
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
 
   const contentBox = [
     {
@@ -66,80 +55,32 @@ const Home = () => {
         "A body and mind that are constantly under stress will retain fat, inflammation, and toxins as protection. If you're chronically dieting, not managing your environment, or struggling with gut germs and mineral deficiencies, your body won't cooperate. To achieve long-lasting, sustainable health, we need to teach your body to feel safe again.",
     },
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollValue = window.scrollY;
-
-      // Xoay ảnh khi cuộn
-      setRotation(scrollValue * 0.5); // Tăng hoặc giảm tốc độ xoay
-
-      // Thu nhỏ ảnh khi cuộn xuống, nhưng không nhỏ hơn 0.3 lần kích thước gốc
-      setScale(Math.max(1 - scrollValue * 0.001, 0.3));
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log(targetRef);
-      if (!targetRef.current) return;
-
-      const targetPosition = targetRef.current.getBoundingClientRect().top;
-
-      if (targetPosition < window.innerHeight / 2) {
-        setIsHeaderVisible(false); // Khi cuộn đến phần tử, header ẩn
-      } else {
-        setIsHeaderVisible(true); // Khi cuộn lên, header hiện lại
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const triggerPoint = window.innerHeight * 0.5; // Kích hoạt khi cuộn 50% màn hình
-
-      if (scrollY > triggerPoint) {
-        setIsVisible(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true); // Hiển thị ảnh full màn hình
-        } else {
-          setIsVisible(false); // Ẩn ảnh khi cuộn qua
-        }
-      },
-      { threshold: 0.5 } // Kích hoạt khi 50% phần tử hiển thị
-    );
-
-    if (imageRef.current) {
-      observer.observe(imageRef.current);
-    }
-
-    return () => {
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current);
-      }
-    };
-  }, []);
+  const listDataBlog = [
+    {
+      images:
+        "https://cdn.prod.website-files.com/65a289fdf3cf4584881a404d/66ab8f489ef6bf459f18ffb2_pli-blog-schleudertrauma%20(1).jpg",
+      title: "Whiplash",
+      desciption: "How to treat whiplash – Causes, Symptoms, and Treatments",
+      date: "31/7/24",
+      time: "5min",
+    },
+    {
+      images:
+        "https://cdn.prod.website-files.com/65a289fdf3cf4584881a404d/6696e91f419480c07c9f0811_praxis-leandra-isler-nuetzt-atlaslogie-wirklich%20(1).jpg",
+      title: "A therapeutic method under the microscope",
+      desciption: "Atlas logic: What is really behind it?",
+      date: "16/7/24",
+      time: "7min",
+    },
+    {
+      images:
+        "https://cdn.prod.website-files.com/65a289fdf3cf4584881a404d/65bd55dccd55ec754f4d5a69_LeandraIsler_FODMAP_Ernaehrung.jpg",
+      title: "FOD MAP",
+      desciption: "What this abbreviation has to do with your intestines",
+      date: "17/5/24",
+      time: "5min",
+    },
+  ];
 
   return (
     <div className="h-auto w-screen">
@@ -148,19 +89,7 @@ const Home = () => {
         alt="images"
         className="absolute top-0 left-0 w-full h-[1800px] z-[-1]"
       />
-      <header
-        className={`relative z-10 mb-[100px] 
-        
-        `}
-      >
-        <Header
-          className={`${
-            isHeaderVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-10"
-          }`}
-        />
-      </header>
+
       <div className="w-full text-center mt-[30px]">
         <h1 className="text-[156px]">Practice for</h1>
         <h1 className="text-[156px] flex justify-center gap-[200px]">
@@ -194,7 +123,7 @@ const Home = () => {
           well-being.
         </p>
       </div>
-      <div className="mt-5" ref={imageRef}>
+      <div className="mt-5">
         <img
           src="https://clients.eseassets.ch/pli/assets/focus-sequence/v1/webp/pli-home-focus-sequence-00001.webp"
           className={` w-screen h-screen object-cover transition-opacity duration-1000 `}
@@ -261,19 +190,9 @@ const Home = () => {
 
       <LineRow padding="px-[60px] py-[100px]" />
 
-      <div className="">
-        <HealthBlog />
+      <div className="h-full">
+        <HealthBlog dataBlog={listDataBlog} />
       </div>
-
-      <LineRow padding="px-[60px] py-[100px]" />
-
-      <div className="w-full px-[60px] mx-auto ">
-        <Support />
-      </div>
-
-      <footer className="">
-        <Footer />
-      </footer>
     </div>
   );
 };

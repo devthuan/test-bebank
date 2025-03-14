@@ -35,11 +35,11 @@ const Header = ({ className }) => {
       )}
     >
       <div className="w-full h-full px-[60px]  flex justify-between items-center border-b-[1px] border-black">
-        <div className="w-[156px] ">
+        <div className="w-[156px] pt-[10px]">
           <LogoIcon />
         </div>
         <div className="w-[400px] ">
-          <ul className="flex w-full gap-4 mt-[10px]">
+          <ul className="flex w-full gap-3 mt-[10px]">
             <li className={cx("item", "text-[14px] font-normal  ")}>HOME</li>
             <li className={cx("item", "dropdown", "text-[14px] font-normal  ")}>
               <div className="text-[14px] font-normal flex items-center space-x-1 ">
@@ -55,7 +55,7 @@ const Header = ({ className }) => {
             <li className={cx("item", "text-[14px] font-normal ")}>CONTACT</li>
           </ul>
         </div>
-        <div className={cx("item", "text-[14px] font-normal flex ")}>
+        <div className={cx("item", "text-[14px] font-normal flex pt-[10px]")}>
           BOOK APPOINTMENT
           <span className="mt-[1px]">
             <TopArrowIcon />

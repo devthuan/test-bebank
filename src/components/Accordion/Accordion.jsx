@@ -34,7 +34,7 @@ const Accordion = ({ items }) => {
             )}
             onClick={() => handleClick(index)}
           >
-            <p className={cx("accordion__title-text","text-[25px]")}>{item.title}</p>
+            <p className={cx("accordion__title-text","text-[25px] uppercase")}>{item.title}</p>
             <div>
               {activeIndex === index ? (
                 <PlusIconBold width="25" className={cx("icon_plus_rotate")} />

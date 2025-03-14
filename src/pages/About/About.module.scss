@@ -1,0 +1,39 @@
+
+.health__blog {
+
+    
+}
+
+.health__blog-title {
+
+    p {
+    font-size: 104px;
+        margin: -34px;
+        padding: 0;
+        letter-spacing: -5px;
+    }
+    
+}
+
+.health__blog-input {
+    color: black;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: transparent;
+    outline:  none;
+
+    &::placeholder {
+        color: black; 
+    }
+    
+}
+
+.item-topic {
+    cursor: pointer;
+    transition: all 0.4s;
+
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}

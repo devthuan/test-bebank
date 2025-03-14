@@ -3,9 +3,9 @@ import styles from "./LineRow.module.scss";
 
 const cx = classNames.bind(styles);
 
-const LineRow = ({ padding = "p-[60px]" }) => {
+const LineRow = ({ padding = 'px-[60px]' }) => {
   return (
-    <div className={`w-screen ${padding} flex justify-center items-center`}>
+    <div className={`w-full ${padding} flex `}>
       <span className="w-full h-[1px] bg-black"></span>
     </div>
   );
