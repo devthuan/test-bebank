@@ -7,7 +7,9 @@ import LineRow from "../../components/LineRow/LineRow";
 import Accordion from "../../components/Accordion/Accordion";
 import HealthBlog from "../../components/HealthBlog/HealthBlog";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
+import Block from "../../components/Block/Block";
 
+// eslint-disable-next-line no-unused-vars
 const cx = classNames.bind(styles);
 const Home = () => {
   const targetRef = useRef(null);
@@ -85,7 +87,7 @@ const Home = () => {
   return (
     <div className="h-auto w-screen">
       <img
-        src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659ab96b20d886f0cb06285a_pli-background-default.jpg"
+        src=""
         alt="images"
         className="absolute top-0 left-0 w-full h-[1800px] z-[-1]"
       />
@@ -142,22 +144,10 @@ const Home = () => {
           <h1 className="text-[156px] text-right mr-[110px]">treatments</h1>
         </div>
 
-        <div className="grid grid-cols-3 w-full px-[60px] gap-[20px] mt-[110px] h-[430px] ">
+        <div className="grid grid-cols-3 w-full gap-[20px] mt-[110px] h-[430px] ">
           {contentBox.map((item, index) => {
             return (
-              <div
-                key={index}
-                className={cx(
-                  "p-[60px] w-full h-full bg-[#a58f6417] flex flex-col gap-y-[30px] ",
-                  "hover-box"
-                )}
-              >
-                {item.icon}
-                <h1 className="text-[24px] text-left ">{item.title}</h1>
-                <p className="18px leading-relaxed text-left ">
-                  {item.content}
-                </p>
-              </div>
+              <Block key={index} title={item.title} content={item.content} />
             );
           })}
         </div>
@@ -166,16 +156,16 @@ const Home = () => {
       <LineRow />
 
       {/* services */}
-      <div className="">
+      <div className="w-full h-full">
         <TitleComponent title="My Services" />
         <div className="mt-[60px] pl-[60px] w-auto h-auto">
           {<DragToScroll />}
         </div>
       </div>
 
-      <LineRow />
+      <LineRow padding="px-[60px] pt-[100px]" />
 
-      <div className="w-full text-center mt-[30px]">
+      <div className="w-full text-center mt-[50px]">
         <h1 className="text-[156px]">Searching</h1>
         <h1 className="text-[156px] flex justify-center gap-[200px]">
           <span className="text-[156px]">for</span>

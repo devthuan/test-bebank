@@ -1,0 +1,44 @@
+.button-with-icon {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+
+
+
+.icon,
+.text {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.button-with-icon:hover {
+    background-color: black;
+    color: #edddc3
+}
+
+.button-with-icon:hover .icon {
+    transform: translateX(calc(100% + 130px));
+}
+
+.button-with-icon:hover .text {
+    transform: translateX(-30px);
+}

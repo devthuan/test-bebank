@@ -79,7 +79,7 @@ const Blog = () => {
         alt="images"
         className="absolute top-0 left-0 w-full h-[1000px] z-[-1]"
       />
-      <header className={`relative z-10 mb-[80px]`}>
+      <header className={` z-10 mb-[80px]`}>
         <div
           className={cx(
             "health__blog",

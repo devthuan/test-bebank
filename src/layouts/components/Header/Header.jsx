@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { LogoIcon, PlusIcon, TopArrowIcon } from "../../../components/Icons";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router";
 const cx = classNames.bind(styles);
 const Header = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,7 +41,9 @@ const Header = ({ className }) => {
         </div>
         <div className="w-[400px] ">
           <ul className="flex w-full gap-3 mt-[10px]">
-            <li className={cx("item", "text-[14px] font-normal  ")}>HOME</li>
+            <NavLink to={"/"}>
+              <li className={cx("item", "text-[14px] font-normal  ")}>HOME</li>
+            </NavLink>
             <li className={cx("item", "dropdown", "text-[14px] font-normal  ")}>
               <div className="text-[14px] font-normal flex items-center space-x-1 ">
                 <span>SERVICES</span>
@@ -50,9 +53,17 @@ const Header = ({ className }) => {
                 {dropMenu({ hoverIndex, setHoverIndex })}
               </div>
             </li>
-            <li className={cx("item", "text-[14px] font-normal ")}>BLOG</li>
-            <li className={cx("item", "text-[14px] font-normal ")}>ABOUT</li>
-            <li className={cx("item", "text-[14px] font-normal ")}>CONTACT</li>
+            <NavLink to={"/blog"}>
+              <li className={cx("item", "text-[14px] font-normal ")}>BLOG</li>
+            </NavLink>
+            <NavLink to={"/about"}>
+              <li className={cx("item", "text-[14px] font-normal ")}>ABOUT</li>
+            </NavLink>
+            <NavLink to={"/contact"}>
+              <li className={cx("item", "text-[14px] font-normal ")}>
+                CONTACT
+              </li>
+            </NavLink>
           </ul>
         </div>
         <div className={cx("item", "text-[14px] font-normal flex pt-[10px]")}>
@@ -137,12 +148,10 @@ const dropMenu = ({ hoverIndex, setHoverIndex }) => {
                 src={listImages[hoverIndex]}
                 alt="Hovered Image"
                 className={cx(
-                  
                   "absolute w-auto h-full object-cover transition-opacity duration-300 ease-in-out opacity-100"
                 )}
               />
             )}
-          
           </div>
         </div>
       </div>

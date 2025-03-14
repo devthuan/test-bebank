@@ -94,7 +94,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="border-[1px] border-black mt-[60px] mb-[30px]"></div> */}
             <LineRow padding="mt-[60px] mb-[30px]" />
             <div className="flex justify-between items-center">
               <div className="text-[14px] uppercase font-medium">
@@ -102,7 +101,6 @@ const Footer = () => {
               </div>
               <div className="flex gap-4">
                 <span className="uppercase font-medium text-[14px]">
-                  {" "}
                   imprint and Data protection
                 </span>
                 <span className="uppercase font-medium text-[14px]">de </span>

@@ -37,3 +37,19 @@
         background-color: rgba(0, 0, 0, 0.1);
     }
 }
+
+.wrap__icon-play {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.6;
+
+    
+    .cursor-video__play-img {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+}

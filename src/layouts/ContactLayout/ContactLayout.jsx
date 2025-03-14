@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
-const DefaultLayout = ({ children }) => {
+const ContactLayout = ({ children }) => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const targetRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      console.log(targetRef);
       if (!targetRef.current) return;
 
       const targetPosition = targetRef.current.getBoundingClientRect().top;
@@ -25,7 +25,7 @@ const DefaultLayout = ({ children }) => {
 
   return (
     <div className="h-screen w-screen ">
-      <header className="w-full h-auto mb-[90px]">
+      <header className="w-full h-auto ">
         <Header
           className={`${
             isHeaderVisible
@@ -35,12 +35,8 @@ const DefaultLayout = ({ children }) => {
         />
       </header>
       <div className="h-auto w-full">{children}</div>
-
-      <footer className="">
-        <Footer />
-      </footer>
     </div>
   );
 };
 
-export default DefaultLayout;
+export default ContactLayout;
