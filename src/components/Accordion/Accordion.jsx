@@ -4,11 +4,11 @@ import styles from "./Accordion.module.scss"; // Import file CSS
 import { PlusIconBold } from "../Icons";
 
 const cx = classNames.bind(styles);
-const Accordion = ({ items }) => {
+const Accordion = ({ items, bg = true }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleClick = (index) => {
-      setActiveIndex(activeIndex === index ? null : index); // Đóng nếu đã mở, mở nếu đã đóng
+    setActiveIndex(activeIndex === index ? null : index); // Đóng nếu đã mở, mở nếu đã đóng
   };
 
   return (
@@ -19,7 +19,13 @@ const Accordion = ({ items }) => {
           className={cx(
             "accordion-item",
             `
-          ${activeIndex === index ? "bg-[#edddc3]" : ""}
+          ${
+            activeIndex === index
+              ? bg
+                ? "bg-[#edddc3]"
+                : "bg-transparent"
+              : ""
+          }
             ${
               item.title === "Your body doesn't feel safe." ? "border-none" : ""
             }
@@ -34,7 +40,12 @@ const Accordion = ({ items }) => {
             )}
             onClick={() => handleClick(index)}
           >
-            <p className={cx("accordion__title-text", "text-[25px] uppercase")}>
+            <p
+              className={cx(
+                "accordion__title-text",
+                "text-[25px] uppercase pr-[30px] lg:pr-[0]"
+              )}
+            >
               {item.title}
             </p>
             <div>
@@ -56,7 +67,7 @@ const Accordion = ({ items }) => {
               `${activeIndex === index ? "open" : ""}`
             )}
           >
-            {item.content.split("<br>").map((line, i) => (
+            {item?.content.split("<br>").map((line, i) => (
               <Fragment key={i}>
                 <br />
                 {line}

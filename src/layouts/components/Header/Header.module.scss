@@ -54,6 +54,8 @@
             visibility 0.5s ease-in-out,
             transform 0.5s ease-in-out;
         z-index: -1;
+        transition: all 0.3s ease;
+        transform-origin: top;
     }
 
     &:hover .dropdown-menu {
@@ -81,6 +83,12 @@
         }
     }
 
+    &:hover {
+        .plus-icon {
+            transform: rotate(45deg);
+        }
+    }
+
 }
 
 .item-drop-list {
@@ -99,6 +107,15 @@
             filter 0.6s ease-in-out 0.01s,
             opacity 0.6s ease-in-out 0.01s,
             transform 0.3s ease-in-out 0.01s;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease forwards;
+
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.1}s;
+            }
+        }
 
         .wrap-text {
 
@@ -142,6 +159,20 @@
     opacity: 1;
     transform: scale(1);
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 
 
 

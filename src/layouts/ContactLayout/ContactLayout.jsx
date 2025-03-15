@@ -24,17 +24,20 @@ const ContactLayout = ({ children }) => {
   }, []);
 
   return (
-    <div className="h-screen w-screen ">
-      <header className="w-full h-auto ">
+    <div className="h-screen w-screen">
+      <header className="w-full h-auto">
         <Header
           className={`${
             isHeaderVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-10"
-          }`}
+          } transition-all duration-300`}
         />
       </header>
-      <div className="h-auto w-full">{children}</div>
+      <div className="h-auto w-full ">{children}</div>
+      {/* <div className="h-auto w-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        {children}
+      </div> */}
     </div>
   );
 };

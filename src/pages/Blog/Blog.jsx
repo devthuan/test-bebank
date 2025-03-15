@@ -73,21 +73,23 @@ const Blog = () => {
   ];
 
   return (
-    <div className="h-auto w-screen">
+    <div className="h-auto w-full">
       <img
         src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659ab96b20d886f0cb06285a_pli-background-default.jpg"
         alt="images"
-        className="absolute top-0 left-0 w-full h-[1000px] z-[-1]"
+        className="absolute top-0 left-0 w-full h-[1000px] z-[-1] object-cover"
       />
-      <header className={` z-10 mb-[80px]`}>
+      <header className={`z-10 mb-[80px]`}>
         <div
           className={cx(
             "health__blog",
-            "w-full h-[274px] px-[60px] mt-[200px]  flex flex-col justify-center items-center "
+            "w-full h-[274px] px-[40px]  md:px-[60px] mt-[150px] lg:mt-[200px] flex flex-col justify-center items-center"
           )}
         >
-          <h1 className={cx("health__blog-title")}>Health Blog</h1>
-          <div className="w-[750px] h-[62px] my-[22px] relative">
+          <h1 className={cx("lg:text-[120px] text-[60px]", "text-center")}>
+            Health Blog
+          </h1>
+          <div className="w-full max-w-[750px] h-[62px] my-[22px] relative">
             <input
               placeholder="Enter search term..."
               type="text"
@@ -98,8 +100,11 @@ const Blog = () => {
             />
             <SearchIcon className="absolute top-[20px] left-[20px]" />
           </div>
-          <div className="flex gap-[8px]">
-            <p className="text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px] ">
+          <p className="flex lg:hidden text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px]">
+            TOPICS
+          </p>
+          <div className="flex flex-wrap gap-[8px] justify-center">
+            <p className="hidden lg:flex text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px]">
               TOPICS
             </p>
             {listTopic?.map((item, index) => {
@@ -108,7 +113,7 @@ const Blog = () => {
                   key={index}
                   className={cx(
                     "item-topic",
-                    "text-[black] uppercase rounded-[4px] text-[14px] border-[1px] px-[12px] py-[7px] border-black"
+                    "text-[black] uppercase rounded-[2px] text-[14px] border-[1px] px-[12px] py-[7px] border-black"
                   )}
                 >
                   {item}
@@ -119,7 +124,7 @@ const Blog = () => {
         </div>
       </header>
 
-      <div className="w-full h-auto pt-[100px]">
+      <div className="w-full h-auto pt-[100px] px-[20px] md:px-[60px]">
         <HealthBlog classNameTitle={"hidden"} dataBlog={listData} />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PlusIcon } from "../../components/Icons";
 import DragToScroll from "../../components/DragToScroll/DragToScroll";
 import LineRow from "../../components/LineRow/LineRow";
@@ -8,11 +8,14 @@ import Accordion from "../../components/Accordion/Accordion";
 import HealthBlog from "../../components/HealthBlog/HealthBlog";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
 import Block from "../../components/Block/Block";
+import ScrollSequence from "../../components/ScrollSequence/ScrollSequence";
 
 // eslint-disable-next-line no-unused-vars
 const cx = classNames.bind(styles);
 const Home = () => {
   const targetRef = useRef(null);
+
+  const [scrollY, setScrollY] = useState(0);
 
   const contentBox = [
     {
@@ -84,39 +87,43 @@ const Home = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="h-auto w-screen">
+    <div className="h-auto w-full mx-auto">
+      {console.log(scrollY)}
       <img
-        src=""
-        alt="images"
-        className="absolute top-0 left-0 w-full h-[1800px] z-[-1]"
+        src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659ab96b20d886f0cb06285a_pli-background-default.jpg"
+        alt="background header img"
+        className="absolute top-0 left-0 w-full h-[800px] md:h-[1600px] lg:h-[1800px] z-[-1]"
       />
 
-      <div className="w-full text-center mt-[30px]">
-        <h1 className="text-[156px]">Practice for</h1>
-        <h1 className="text-[156px] flex justify-center gap-[200px]">
-          <span className="text-[156px]">Atlasology</span>
-          <span className="text-[156px]">and</span>
+      <div className="md:px-[30px] w-full text-center mt-[100px] md:mt-[120px] lg:mt-[30px]">
+        <h1 className="text-[60px] md:text-[80px] lg:text-[156px] tracking-[-2px] md:tracking-[-3px]">
+          Practice for
         </h1>
-        <h1 className="text-[156px] text-right mr-[110px]">Naturopathy</h1>
+        <div className="text-[60px] md:text-[80px] lg:text-[156px] tracking-[-2px] md:tracking-[-3px] flex items-center justify-center  md:gap-[50px] lg:gap-[200px]">
+          <h1 className="text-start ">Atlasology</h1>
+          <h1 className=" lg:mt-2 md:mt-0 md:ml-[10px]  w-full">and</h1>
+        </div>
+        <h1 className="text-[60px] md:text-[80px] lg:text-[156px] tracking-[-2px] md:tracking-[-3px] text-center lg:text-right lg:mr-[110px]">
+          Naturopathy
+        </h1>
+        <ScrollSequence />
       </div>
-      <div className="mt-[50px] h-auto">
-        <img
-          src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2.png"
-          alt="images"
-          loading="lazy"
-          srcSet="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2-p-500.png 500w, https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2-p-800.png 800w, https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2-p-1080.png 1080w, https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2-p-1600.png 1600w, https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2-p-2000.png 2000w, https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659add45a6850e7bd1d48119_pli-home-hero2.png 2500w"
-          className="absolute top-[200px] w-full h-[1100px]"
-          // style={{
-          //   transform: `rotateY(${rotation}deg)`,
-          //   transition: "transform 0.1s linear",
-          //   transformOrigin: "center", // Quay quanh trục giữa
-          // }}
-        />
 
+      <div className="mt-[430px] md:pt-[430px] lg:mt-[330px] h-auto">
+        <LineRow padding="py-[60px] " />
         <p
           ref={targetRef}
-          className=" mt-[650px] p-[60px] text-[52px] border-y-[1px] border-black"
+          className="  lg:mt-[650px] p-[20px] md:p-[40px] lg:p-[60px] text-[24px] md:text-[36px] lg:text-[52px] "
         >
           Welcome to the Practice Leandra Isler – your specialist in atlasology
           and naturopathy in Zurich Volketswil. I offer you holistic health
@@ -124,7 +131,9 @@ const Home = () => {
           therapeutic approaches, I support you on your journey to greater
           well-being.
         </p>
+        <LineRow padding="py-[60px]" />
       </div>
+
       <div className="mt-5">
         <img
           src="https://clients.eseassets.ch/pli/assets/focus-sequence/v1/webp/pli-home-focus-sequence-00001.webp"
@@ -134,17 +143,21 @@ const Home = () => {
       </div>
 
       {/* This is what */}
-      <div className="mx-[60px] mt-[120px] pb-[120px]  h-auto  text-center ">
-        <div className="w-full text-center mt-[30px]">
-          <h1 className="text-[156px]">This is what</h1>
-          <h1 className="text-[156px] flex justify-center gap-[90px]">
-            <span className="text-[156px]">distinguishes</span>
-            <span className="text-[156px]">my</span>
+      <div className=" md:mx-[40px] lg:mx-[60px] mt-[60px] md:mt-[90px] lg:mt-[120px] pb-[60px] md:pb-[90px] lg:pb-[120px] h-auto ">
+        <div className="px-[20px] w-full text-center mt-[20px] md:mt-[25px] lg:mt-[30px]">
+          <h1 className="text-start md:text-center text-[40px] md:text-[80px] lg:text-[156px]">
+            This is what
           </h1>
-          <h1 className="text-[156px] text-right mr-[110px]">treatments</h1>
+          <h1 className="w-full text-[40px] md:text-[80px] lg:text-[156px] flex  justify-between   ">
+            <span className="text-start">distinguishes</span>
+            <span className="text-end">my</span>
+          </h1>
+          <h1 className="text-end text-[40px] md:text-[80px] lg:text-[156px]  lg:text-right lg:mr-[110px]">
+            treatments
+          </h1>
         </div>
 
-        <div className="grid grid-cols-3 w-full gap-[20px] mt-[110px] h-[430px] ">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 w-auto gap-[20px] mt-[40px] md:mt-[70px] lg:mt-[110px] h-auto lg:h-[430px]">
           {contentBox.map((item, index) => {
             return (
               <Block key={index} title={item.title} content={item.content} />
@@ -154,33 +167,34 @@ const Home = () => {
       </div>
 
       <LineRow />
-
       {/* services */}
       <div className="w-full h-full">
         <TitleComponent title="My Services" />
-        <div className="mt-[60px] pl-[60px] w-auto h-auto">
+        <div className="mt-[30px] md:mt-[45px] lg:mt-[60px] px-[20px] md:px-[40px] lg:px-[60px] w-auto h-auto">
           {<DragToScroll />}
         </div>
       </div>
 
-      <LineRow padding="px-[60px] pt-[100px]" />
-
-      <div className="w-full text-center mt-[50px]">
-        <h1 className="text-[156px]">Searching</h1>
-        <h1 className="text-[156px] flex justify-center gap-[200px]">
-          <span className="text-[156px]">for</span>
-          <span className="text-[156px]">sustainable</span>
+      <LineRow padding="  md:px-[40px] lg:px-[60px] pt-[50px] md:pt-[75px] lg:pt-[100px]" />
+      <div className="w-full px-[40px] text-center mt-[30px] md:mt-[40px] lg:mt-[50px]">
+        <h1 className="text-[40px] md:text-[80px] lg:text-[156px]">
+          Searching
         </h1>
-        <h1 className="text-[156px] text-right mr-[110px]">health</h1>
+        <h1 className="w-full text-[40px] md:text-[80px] lg:text-[156px] flex justify-between md:gap-[100px] lg:gap-[200px]">
+          <span className="text-start">for</span>
+          <span className="text-end">sustainable</span>
+        </h1>
+        <h1 className="text-[40px] md:text-[80px] lg:text-[156px] text-end lg:text-right lg:mr-[110px]">
+          health
+        </h1>
       </div>
 
-      <div className="w-screen px-[60px] mt-[60px]">
+      <div className="w-full  px-[40px]  mt-[30px] md:mt-[45px] lg:mt-[60px]">
         <Accordion items={items} />
       </div>
 
-      <LineRow padding="px-[60px] py-[100px]" />
-
-      <div className="h-full">
+      <LineRow padding=" md:px-[40px] lg:px-[60px] py-[120px] md:py-[75px] lg:py-[100px]" />
+      <div className="px-[40px] h-full w-full">
         <HealthBlog dataBlog={listDataBlog} />
       </div>
     </div>

@@ -4,9 +4,9 @@ import styles from "./LineRow.module.scss";
 
 const cx = classNames.bind(styles);
 
-const LineRow = ({ padding = "px-[60px]" }) => {
+const LineRow = ({ padding = "px-[30px] md:px-[80px] lg:px-[100px]" }) => {
   const lineRef = useRef(null);
-  console.log("lineRef: ", lineRef);
+  // console.log("lineRef: ", lineRef);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,7 +18,7 @@ const LineRow = ({ padding = "px-[60px]" }) => {
       { threshold: 0.1 }
     );
 
-    console.log("observer: ", lineRef); 
+    // console.log("observer: ", lineRef);
 
     if (lineRef.current) {
       observer.observe(lineRef.current);
@@ -32,8 +32,8 @@ const LineRow = ({ padding = "px-[60px]" }) => {
   }, []);
 
   return (
-    <div className={cx("line-row", padding)}>
-      <span ref={lineRef} className={cx("line")}></span>
+    <div className={cx("line-row", "w-full", padding)}>
+      <span ref={lineRef} className={cx("line", "w-full")}></span>
     </div>
   );
 };

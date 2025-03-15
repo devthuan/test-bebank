@@ -48,7 +48,7 @@ const DragToScroll = () => {
 
   // Kết thúc kéo
   const handleMouseUp = () => {
-    setIsDragging(false)
+    setIsDragging(false);
   };
 
   // Khi di chuyển chuột
@@ -71,7 +71,7 @@ const DragToScroll = () => {
       <div
         ref={containerRef}
         className={cx(
-          "flex  h-full w-full  gap-[20px]  overflow-x-hidden  scroll-snap-type-x-mandatory scrollbar-hide cursor-grab"
+          "flex h-full w-full gap-[20px] overflow-x-hidden scroll-snap-type-x-mandatory scrollbar-hide cursor-grab"
         )}
         style={{ userSelect: "none" }} // Ngăn chọn văn bản khi kéo
       >
@@ -80,22 +80,37 @@ const DragToScroll = () => {
             key={index}
             className={cx(
               "item-hover",
-              "ml-[5px] mt-[10px] relative flex-shrink-0 h-[643px] w-[480px] bg-[#edddc3] rounded-lg "
+              "ml-1 sm:ml-2 lg:ml-[5px] mt-2 sm:mt-3 lg:mt-[10px]",
+              "relative flex-shrink-0",
+              "h-[434px] sm:h-[500px] lg:h-[643px]",
+              "w-[324px] sm:w-[400px] lg:w-[480px]",
+              "bg-[#edddc3] rounded-lg"
             )}
           >
             <img
-              className="absolute z-0 rounded-lg"
+              className="absolute z-0 rounded-lg w-full h-full object-cover"
               src={item.image}
               alt=""
             />
-            <div className="p-[40px] absolute bottom-[20px]">
-              <h1 className="text-[42px]">{item.title}</h1>
-
-              <button className={cx("button-with-icon", "mt-[20px]")}>
+            <div className="p-4 sm:p-8 lg:p-[40px] absolute bottom-4 sm:bottom-6 lg:bottom-[20px]">
+              <h1 className="text-2xl sm:text-3xl lg:text-[42px]">
+                {item.title}
+              </h1>
+              <button
+                className={cx("button-with-icon", "mt-4 sm:mt-6 lg:mt-[20px]")}
+              >
                 <span className={cx("icon")}>
                   <ArrowRightIcon />
                 </span>
-                <span className={cx("text", "text-[16px]")}>Learn more</span>
+                <span
+                  className={cx(
+                    "text",
+                    "text-[16px] sm:text-[12px] md:text-[14px]"
+                  )}
+                >
+                  Learn more
+                </span>{" "}
+                {/* Responsive button text size */}
               </button>
             </div>
           </div>

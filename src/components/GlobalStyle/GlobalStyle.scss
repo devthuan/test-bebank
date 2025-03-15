@@ -32,6 +32,11 @@
     box-sizing: border-box;
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--white);
     color: var(--black);
@@ -40,7 +45,16 @@ body {
     line-height: 1.2;
     transition: background-color .4s;
     overflow-x: hidden;
+    background-color: #f4e6cd;
 
     // font-family: "Roboto", s ans-serif;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+        scrollbar-width: none;
+    
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Edge */
+        }
    
 }

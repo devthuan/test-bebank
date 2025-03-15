@@ -45,20 +45,35 @@
         }
     }
 
-    .accordion__title-text {
-    font-weight: 200;
+    @media (max-width: 600px) {
+        padding: 20px;
+    }
+    @media (min-width: 601px) and (max-width: 1024px) {
+        padding: 25px;
+    }
+    @media (min-width: 1025px) {
+        padding: 30px;
     }
 
-   
+    .accordion__title-text {
+        font-weight: 200;
+
+        @media (max-width: 600px) {
+            font-size: 18px;
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            font-size: 22px;
+        }
+        @media (min-width: 1025px) {
+            font-size: 25px;
+        }
+    }
 }
 
- .open_title {
-     padding-left: 30px;
-     padding-right: 30px;
- }
-
-
-
+.open_title {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 .accordion-content {
     max-height: 0;
@@ -74,6 +89,16 @@
         max-height: 500px; // Đặt giá trị max-height lớn hơn chiều cao tối đa của content
         padding: 15px 30px 30px 30px;
         transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+        font-size: 14px;
+    }
+    @media (min-width: 601px) and (max-width: 1024px) {
+        font-size: 16px;
+    }
+    @media (min-width: 1025px) {
+        font-size: 18px;
     }
 }
 

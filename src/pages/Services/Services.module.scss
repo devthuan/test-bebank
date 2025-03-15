@@ -22,19 +22,21 @@
 }
 
 
+
+
 .icon,
 .text {
     margin-right: 10px;
-    transition: transform 0.6s ease;
+    transition: transform 0.3s ease;
 }
 
 .button-with-icon:hover {
     background-color: black;
-    color: #edddc3;
+    color: #edddc3
 }
 
 .button-with-icon:hover .icon {
-    transform: translateX(calc(100% + 50px));
+    transform: translateX(calc(100% + 130px));
 }
 
 .button-with-icon:hover .text {
