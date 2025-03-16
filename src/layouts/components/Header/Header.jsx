@@ -27,7 +27,7 @@ const Header = ({ className }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 90) {
         setIsScrolled(true); // Khi cuộn xuống >50px thì đổi màu
       } else {
         setIsScrolled(false);
@@ -226,7 +226,6 @@ const Header = ({ className }) => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
@@ -308,6 +307,8 @@ const dropMenu = ({ hoverIndex, setHoverIndex }) => {
                 src={listImages[hoverIndex]}
                 alt="Hovered Image"
                 className={cx(
+                  hoverIndex !== null && "visible",
+                  "img-animation",
                   "absolute w-auto h-full object-cover transition-opacity duration-300 ease-in-out opacity-100"
                 )}
               />

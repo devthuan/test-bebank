@@ -9,7 +9,7 @@ const Support = () => {
     <div
       className={cx(
         "wrap-support",
-        "flex flex-col md:flex-row h-[610px] md:h-[407px] w-full"
+        "flex flex-col md:flex-row h-[610px] md:h-[407px] w-full max-w-[2000px] mx-auto"
       )}
     >
       <div

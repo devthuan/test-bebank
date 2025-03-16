@@ -16,6 +16,7 @@
     "babylonjs-loaders": "^7.52.2",
     "classnames": "^2.5.1",
     "customize-cra": "^1.0.0",
+    "framer-motion": "^12.5.0",
     "frontend": "file:",
     "motion": "^12.4.11",
     "normalize.css": "^8.0.1",

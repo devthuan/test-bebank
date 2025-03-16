@@ -4,11 +4,11 @@ import { LogoIcon } from "../../../components/Icons";
 import LineRow from "../../../components/LineRow/LineRow";
 import Support from "../../../components/Support/Support";
 import Accordion from "../../../components/Accordion/Accordion";
-import { title } from "motion/react-client";
 
 const cx = classNames.bind(styles);
 
 const Footer = ({ hiddenSupport = false }) => {
+  
   const items = [
     {
       title: "Pages",
@@ -34,8 +34,8 @@ const Footer = ({ hiddenSupport = false }) => {
         ""
       ) : (
         <>
-          <LineRow padding="py-[120px] lg:py-[60px]" />
-          <div className="w-full px-[30px] md:px-[30px] mx-auto">
+          <LineRow padding="py-[120px] px-[30px] md:px-16 lg:py-[60px]" />
+          <div className="w-full px-[30px] md:px-16 mx-auto">
             <Support />
           </div>
         </>
@@ -50,10 +50,10 @@ const Footer = ({ hiddenSupport = false }) => {
           src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659b17a3a0ec2e337dbf90c7_pli-background-footer-p-1600.jpg"
           alt=""
         />
-        <div className="relative  pt-[320px] w-full h-auto">
+        <div className="relative pt-[320px] md:pt-[320px] lg:pt-[320px] w-full h-auto">
           <div className="py-8 md:py-[40px] px-4 md:px-[60px]">
             <div className="flex flex-col md:flex-row justify-between items-start">
-              <div className="md:hidden mb-8 md:mb-0">
+              <div className=" lg:flex md:hidden flex-col mb-8 md:mb-0">
                 <div className="w-[156px]">
                   <LogoIcon />
                 </div>

@@ -1,0 +1,29 @@
+.hover-box {
+    position: relative;
+    padding: 60px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(165, 143, 100, 0.09);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        border: 1px solid black;
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: scale(1);
+    }
+
+    &:hover::before {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+}
+

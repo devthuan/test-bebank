@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./Block.module.scss";
 import { PlusIcon } from "../Icons";
+import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 const cx = classNames.bind(styles);
 
@@ -14,22 +15,26 @@ const Block = ({ title, content, classWrap, classH1, classP }) => {
       )}
     >
       <PlusIcon />
-      <h1
-        className={cx(
-          "text-[24px] md:text-[18px] lg:text-[20px] text-left",
-          classH1
-        )}
-      >
-        {title}
-      </h1>
-      <p
-        className={cx(
-          "text-[16px] md:text-[14px] lg:text-[16px] leading-relaxed text-left",
-          classP
-        )}
-      >
-        {content}
-      </p>
+      <ScrollReveal>
+        <h1
+          className={cx(
+            "text-[24px] md:text-[18px] lg:text-[20px] text-left",
+            classH1
+          )}
+        >
+          {title}
+        </h1>
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <p
+          className={cx(
+            "text-[16px] md:text-[14px] lg:text-[16px] leading-relaxed text-left",
+            classP
+          )}
+        >
+          {content}
+        </p>
+      </ScrollReveal>
     </div>
   );
 };

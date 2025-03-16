@@ -1,10 +1,10 @@
 import classNames from "classnames/bind";
-import styles from "./ScrollSequence.module.scss";
+import styles from "./ScrollSequenceGirl.module.scss";
 import { useEffect, useRef, useState } from "react";
 
 const cx = classNames.bind(styles);
 
-const ScrollSequence = () => {
+const ScrollSequenceGirl = () => {
   const [scrollY, setScrollY] = useState(0);
   const [counter, setCounter] = useState(0);
   const prevScrollY = useRef(0);
@@ -16,14 +16,14 @@ const ScrollSequence = () => {
 
       const scrollDifference = currentScrollY - prevScrollY.current; // Tính sự chênh lệch scroll
 
-      if (scrollDifference >= 0) {
+      if (scrollDifference > 0) {
         // Scroll xuống và đạt 50px
         setCounter((prevCounter) => {
           const newCounter = prevCounter + 1;
-          return newCounter > 52 ? 52 : newCounter; // Giới hạn counter tối đa là 52
+          return newCounter > 139 ? 139 : newCounter; // Giới hạn counter tối đa là 52
         });
         prevScrollY.current = currentScrollY; // Cập nhật giá trị scrollY trước đó
-      } else if (scrollDifference <= 0 || scrollDifference < 0) {
+      } else if (scrollDifference < 0) {
         // Scroll lên và đạt 50px
         setCounter((prevCounter) => {
           const newCounter = prevCounter - 1;
@@ -39,11 +39,10 @@ const ScrollSequence = () => {
 
   return (
     <div className={cx()}>
-     
       <img
-        src={`https://clients.eseassets.ch/pli/assets/hero-sequence/v2/png/pli-home-hero-sequence-${String(
+        src={`https://clients.eseassets.ch/pli/assets/focus-sequence/v1/webp/pli-home-focus-sequence-${String(
           counter
-        ).padStart(5, "0")}.png`}
+        ).padStart(5, "0")}.webp`}
         alt="images tree"
         loading="lazy"
         className="absolute object-cover top-[170px] md:top-[250px]  lg:top-[200px] md:w-full lg:w-full left-0 w-auto h-[500px] md:h-[1000px] lg:h-[1250px] "
@@ -52,4 +51,4 @@ const ScrollSequence = () => {
   );
 };
 
-export default ScrollSequence;
+export default ScrollSequenceGirl;

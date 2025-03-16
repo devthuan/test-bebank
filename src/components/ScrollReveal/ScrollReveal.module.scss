@@ -1,0 +1,56 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    &.fade-in.visible {
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    &.slide-up.visible {
+        animation: slideUp 1s ease-out forwards;
+    }
+
+    &.zoom-in.visible {
+        animation: zoomIn 1s ease-out forwards;
+    }
+}

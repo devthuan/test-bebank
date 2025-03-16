@@ -72,14 +72,14 @@ const HealthBlog = ({ classNameTitle, dataBlog }) => {
 
                   <div
                     className={cx(
-                      { "item-content": window.innerWidth >= 1024 }
-                      // "sm:col-span-2 bg-[#edddc3] p-4 md:p-5 lg:p-[20px] w-full h-auto min-h-[100px] md:min-h-[150px] lg:min-h-[200px] "
+                      { "item-content": window.innerWidth >= 1024 },
+                      "col-span-2 bg-[#edddc3] p-4 md:mt-[20px] md:p-2 lg:p-[20px] w-full h-auto min-h-[100px] md:min-h-[150px] lg:min-h-[200px] lg:bottom-0 "
                     )}
                   >
-                    <div className="md:p-[20px] md:mt-[-40px]">
-                    <h4 className="text-[12px] md:text-[14px] mb-1 md:mb-[4px] uppercase">
-                      {item.title}
-                    </h4>
+                    <div className="w-full md:p-[20px] md:mt-[-40px] lg:mt-[-10px]">
+                      <h4 className="text-[12px] md:text-[14px] mb-1 md:mb-[4px] uppercase">
+                        {item.title}
+                      </h4>
                       <p className="text-[18px] md:text-[16px] lg:text-[18px] max-w-[350px]">
                         {item.desciption}
                       </p>

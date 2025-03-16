@@ -24,7 +24,7 @@ const DefaultLayout = ({ children }) => {
   }, []);
 
   return (
-    <div className="h-full w-screen">
+    <div className="h-full w-screen ">
       <header className="w-full h-full mb-[90px]">
         <Header
           className={`${
@@ -35,7 +35,7 @@ const DefaultLayout = ({ children }) => {
         />
       </header>
       {/* <div className="h-auto w-full px-4 md:px-8 lg:px-16">{children}</div> */}
-      <div className="h-auto w-full ">{children}</div>
+      <div className="h-auto w-full max-w-[2000px] mx-auto ">{children}</div>
       <footer className="">
         <Footer />
       </footer>

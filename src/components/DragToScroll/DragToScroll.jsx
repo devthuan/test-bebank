@@ -71,7 +71,7 @@ const DragToScroll = () => {
       <div
         ref={containerRef}
         className={cx(
-          "flex h-full w-full gap-[20px] overflow-x-hidden scroll-snap-type-x-mandatory scrollbar-hide cursor-grab"
+          "flex h-auto md:h-full lg:h-full w-full gap-[20px] overflow-x-hidden scroll-snap-type-x-mandatory scrollbar-hide cursor-grab"
         )}
         style={{ userSelect: "none" }} // Ngăn chọn văn bản khi kéo
       >

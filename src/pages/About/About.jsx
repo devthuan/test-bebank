@@ -5,6 +5,7 @@ import Accordion from "../../components/Accordion/Accordion";
 import Block from "../../components/Block/Block";
 import DragToScroll from "../../components/DragToScroll/DragToScroll";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
+import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
 
 const cx = classNames.bind(styles);
 const About = () => {
@@ -64,58 +65,75 @@ const About = () => {
   return (
     <div className="h-auto w-full">
       <div className="h-[1500px]">
-        <img
-          alt="images"
-          src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/66f8269123829030d5ef3da0_pli-uber-mich-hero-v3.jpg"
-          className="absolute top-0 left-0 w-full h-[1200px] object-cover z-[-1]"
-        />
+        <ScrollReveal
+          delay={600}
+          className="mt-[-90px] pt-[90px] lg:mt-[-90px] lg:pt-[90px]"
+        >
+          <img
+            alt="images"
+            src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/66f8269123829030d5ef3da0_pli-uber-mich-hero-v3.jpg"
+            className="absolute top-0 left-0 w-full h-[1200px] lg:h-[2000px] object-cover z-[-1]"
+          />
+        </ScrollReveal>
         <h1
           className={cx(
-            "health__blog-title",
-            "text-center lg:pt-[85px] pt-[35px]"
+            // "health__blog-title",
+            "text-center font-medium lg:pt-[85px] pt-[35px] text-[32px] md:text-[43px] lg:text-[70px]"
           )}
         >
-          <p>Hi, I`m Leandra Isler, atlasology</p>
-          <p>therapist and naturopath in</p>
-          <p> training</p>
+          <ScrollReveal>
+            <p>Hi, I`m Leandra Isler, atlasology</p>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p>therapist and naturopath in</p>
+          </ScrollReveal>
+          <ScrollReveal delay={400}>
+            <p> training</p>
+          </ScrollReveal>
         </h1>
       </div>
-      <LineRow padding="px-[30px]  py-[130px]" />
-      <div className="px-[30px] md:px-8 lg:px-16">
-        <h1 className="text-[24px] md:text-[36px] lg:text-[66px] tracking-[-1px] md:tracking-[-3px] m-[-10px]">
-          Back to the roots — this guiding principle accompanies me through my
-          world like a common thread.
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[60px] mt-[20px] md:mt-[58px]">
-          <p className="text-[14px] md:text-[16px] lg:text-[18px]">
-            At the age of seven, I had polyarthritis. Through various therapies
-            in the field of conventional and complementary medicine, I was able
-            to leave the disease behind me after 7 years. A short time later,
-            the desire to research the origin ever greater so that I could also
-            heal the effects that were still being felt. I set off back to my
-            roots and learned so much
-          </p>
-          <p className="text-[14px] md:text-[16px] lg:text-[18px]">
-            valuable during this time, which brought the value of my medical
-            history to a whole new level. I would like to share the experiences
-            that have shaped, shaped and advanced me, together with the
-            knowledge from my training courses, and hope to be able to do at
-            least as much good as I was able to experience.
-          </p>
-        </div>
-      </div>
-      <LineRow padding="px-[30px] py-[80px]" />
-      <div className="px-4 md:px-8 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] md:gap-[60px] mt-[20px] md:mt-[58px]">
-          <div className="ml-5 lg:ml-0 col-span-1 text-[20px] md:text-[24px] lg:text-[30px]">
-            My Education
+      <LineRow padding="px-[30px] md:px-16  py-[130px]" />
+      <div className="px-[30px] md:px-16 lg:px-16">
+        <ScrollReveal>
+          <h1 className="text-[24px] md:text-[36px] lg:text-[66px] tracking-[-1px] md:tracking-[-3px] m-[-10px]">
+            Back to the roots — this guiding principle accompanies me through my
+            world like a common thread.
+          </h1>
+        </ScrollReveal>
+        <ScrollReveal delay={300}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[60px] mt-[20px] md:mt-[58px]">
+            <p className="text-[14px] md:text-[16px] lg:text-[18px]">
+              At the age of seven, I had polyarthritis. Through various
+              therapies in the field of conventional and complementary medicine,
+              I was able to leave the disease behind me after 7 years. A short
+              time later, the desire to research the origin ever greater so that
+              I could also heal the effects that were still being felt. I set
+              off back to my roots and learned so much
+            </p>
+            <p className="text-[14px] md:text-[16px] lg:text-[18px]">
+              valuable during this time, which brought the value of my medical
+              history to a whole new level. I would like to share the
+              experiences that have shaped, shaped and advanced me, together
+              with the knowledge from my training courses, and hope to be able
+              to do at least as much good as I was able to experience.
+            </p>
           </div>
+        </ScrollReveal>
+      </div>
+      <LineRow padding="px-[30px] md:px-16 py-[80px]" />
+      <div className="px-4 md:px-16 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] md:gap-[60px] mt-[20px] md:mt-[58px]">
+          <ScrollReveal>
+            <div className="ml-5 lg:ml-0 col-span-1 text-[20px] md:text-[24px] lg:text-[30px]">
+              My Education
+            </div>
+          </ScrollReveal>
           <div className="col-span-2">
             <Accordion items={items} />
           </div>
         </div>
       </div>
-      <div className="lg:w-screen lg:ml-[-65px] h-[400px] md:h-[834px] mt-[50px] md:mt-[100px] relative">
+      <div className=" lg:w-auto  h-[400px] md:h-[534px] lg:h-[850px] mt-[50px] md:mt-[100px] relative">
         <iframe
           className="w-full h-full"
           src="https://player.vimeo.com/video/916423611?muted=1&autoplay=1&autopause=0&controls=0&loop=1&app_id=122963"
@@ -123,7 +141,7 @@ const About = () => {
         <div
           className={cx(
             "wrap__icon-play",
-            "flex justify-center items-center absolute top-[180px] md:top-[380px] left-[160px] md:left-[660px]"
+            "flex justify-center items-center absolute top-[180px] md:top-[250px] left-[160px] md:left-[400px] lg:top-[380px] lg:left-[650px]"
           )}
         >
           <img
@@ -136,65 +154,83 @@ const About = () => {
         </div>
       </div>
 
-      <div className="px-4 md:px-8 lg:px-16">
+      <div className="px-4 md:px-16 lg:px-16">
         <div className="w-full text-center mt-[30px]">
-          <h1 className="text-[56px]  md:text-[56px] lg:text-[156px] text-start pl-4 md:pl-[200px]">
-            Working
-          </h1>
-          <h1 className="text-[56px]  md:text-[56px] lg:text-[156px] flex justify-between gap-4 md:gap-[200px]">
-            <span className="text-[56px]  md:text-[56px] lg:text-[156px]">
-              with me
-            </span>
-            <span className="text-[56px]  md:text-[56px] lg:text-[156px]">
-              makes
-            </span>
-          </h1>
-          <h1 className="text-[56px]  md:text-[56px] lg:text-[156px] text-right  md:mr-[70px]">
-            sense when you
-          </h1>
+          <ScrollReveal>
+            <h1 className="text-[46px]  md:text-[75px] lg:text-[156px] text-start pl-4 md:pl-[200px]">
+              Working
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal>
+            <h1 className="text-[46px]  md:text-[75px] lg:text-[156px] flex justify-between gap-4 md:gap-[200px]">
+              <span className="text-[46px]  md:text-[75px] lg:text-[156px]">
+                with me
+              </span>
+              <span className="text-[46px]  md:text-[75px] lg:text-[156px]">
+                makes
+              </span>
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal>
+            <h1 className="text-[46px]  md:text-[75px] lg:text-[156px] text-right ">
+              sense when you
+            </h1>
+          </ScrollReveal>
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mt-[20px] md:mt-[60px]">
+        <div className="w-full lg:h-[329px] grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 mt-[100px] md:mt-[60px]">
           {listDataBlock.map((item, index) => (
             <Block key={index} title={item.title} content={item.content} />
           ))}
         </div>
       </div>
 
-      <LineRow padding="px-[30px] py-[80px]" />
+      <LineRow padding="px-[30px] md:px-16 py-[80px]" />
 
-      <div className="px-4 md:px-8 lg:px-16">
-        <div className="w-full text-center">
-          <h1 className=" text-[51px] md:text-[56px] lg:text-[156px] text-center">
-            The light at the
-          </h1>
-          <h1 className=" text-[51px] md:text-[56px] lg:text-[156px] flex justify-between ">
-            <span className=" md:text-[56px] lg:text-[156px]">End of the</span>
-            <span className=" md:text-[56px] lg:text-[156px]">Tunnel</span>
-          </h1>
-          <h1 className=" text-[51px] md:text-[56px] lg:text-[156px] text-right pr-4 md:mr-[10px]">
-            is not a myth
-          </h1>
+      <div className="px-4 md:px-16 lg:px-16">
+        <div className="w-full  text-center">
+          <ScrollReveal delay={200}>
+            <h1 className=" text-[51px] md:text-[70px] lg:text-[156px] text-center">
+              The light at the
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={300}>
+            <h1 className=" text-[51px] md:text-[70px] lg:text-[156px] flex justify-between ">
+              <span className=" md:text-[70px] lg:text-[156px]">
+                End of the
+              </span>
+              <span className=" md:text-[70px] lg:text-[156px]">Tunnel</span>
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={400}>
+            <h1 className=" text-[51px] md:text-[70px] lg:text-[156px] text-right pr-4 md:mr-[10px]">
+              is not a myth
+            </h1>
+          </ScrollReveal>
         </div>
         <div className="mt-[60px] md:mt-[120px]">
           {contentData?.map((item, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-1 md:grid-cols-6 mt-[30px] md:mt-[68px] gap-x-4 md:gap-x-28 gap-y-8"
-            >
-              <div className="col-span-1 md:col-span-2 text-[30px] md:text-[24px] lg:text-[30px]">
-                {item.title}
-              </div>
-              <div className="col-span-1 md:col-span-4 text-[14px] md:text-[16px] lg:text-[18px]">
-                {item.content}
-              </div>
-            </div>
+            <>
+              <ScrollReveal delay={parseInt(index + "00")}>
+                <div
+                  key={index}
+                  className="grid grid-cols-1 md:grid-cols-6 mt-[30px] md:mt-[68px] gap-x-4 md:gap-x-28 gap-y-8"
+                >
+                  <div className="col-span-1 md:col-span-2 text-[30px] md:text-[24px] lg:text-[30px]">
+                    {item.title}
+                  </div>
+                  <div className="col-span-1 md:col-span-4 text-[14px] md:text-[16px] lg:text-[18px]">
+                    {item.content}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </>
           ))}
         </div>
       </div>
 
-      <LineRow padding="px-[30px] py-[80px]" />
+      <LineRow padding="px-[30px] md:px-16 py-[80px]" />
 
-      <div className="lg:w-screen lg:ml-[-60px] mt-[-30px]">
+      <div className="lg:w-screen lg:ml-[60px] mt-[-30px]">
         <TitleComponent title="My Services" />
         <DragToScroll />
       </div>

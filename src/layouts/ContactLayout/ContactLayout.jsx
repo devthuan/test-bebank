@@ -24,7 +24,7 @@ const ContactLayout = ({ children }) => {
   }, []);
 
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen max-w-[2000px]">
       <header className="w-full h-auto">
         <Header
           className={`${

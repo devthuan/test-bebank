@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./Blog.module.scss";
 import { SearchIcon } from "../../components/Icons";
 import HealthBlog from "../../components/HealthBlog/HealthBlog";
+import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
 
 const cx = classNames.bind(styles);
 const Blog = () => {
@@ -86,46 +87,55 @@ const Blog = () => {
             "w-full h-[274px] px-[40px]  md:px-[60px] mt-[150px] lg:mt-[200px] flex flex-col justify-center items-center"
           )}
         >
-          <h1 className={cx("lg:text-[120px] text-[60px]", "text-center")}>
-            Health Blog
-          </h1>
-          <div className="w-full max-w-[750px] h-[62px] my-[22px] relative">
-            <input
-              placeholder="Enter search term..."
-              type="text"
-              className={cx(
-                "health__blog-input",
-                "px-[60px] w-full h-[62px] text-[18px]"
-              )}
-            />
-            <SearchIcon className="absolute top-[20px] left-[20px]" />
-          </div>
-          <p className="flex lg:hidden text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px]">
-            TOPICS
-          </p>
-          <div className="flex flex-wrap gap-[8px] justify-center">
-            <p className="hidden lg:flex text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px]">
+          <ScrollReveal>
+            <h1 className={cx("lg:text-[120px] text-[60px]", "text-center")}>
+              Health Blog
+            </h1>
+          </ScrollReveal>
+            <div className="w-full max-w-[750px] h-[62px] my-[22px] relative">
+          <ScrollReveal delay={200}>
+              <input
+                placeholder="Enter search term..."
+                type="text"
+                className={cx(
+                  "health__blog-input",
+                  "px-[60px] w-full h-[62px] text-[18px]"
+                )}
+              />
+              <SearchIcon className="absolute top-[20px] left-[20px]" />
+          </ScrollReveal>
+            </div>
+          <ScrollReveal delay={300}>
+            <p className="flex md:hidden lg:hidden text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px]">
               TOPICS
             </p>
-            {listTopic?.map((item, index) => {
-              return (
-                <p
-                  key={index}
-                  className={cx(
-                    "item-topic",
-                    "text-[black] uppercase rounded-[2px] text-[14px] border-[1px] px-[12px] py-[7px] border-black"
-                  )}
-                >
-                  {item}
-                </p>
-              );
-            })}
-          </div>
+            <div className="w-full flex flex-wrap gap-[8px] justify-center">
+              <p className="hidden md:flex lg:flex text-[black] uppercase first-letter:rounded-[4px] text-[14px] px-[12px] py-[7px]">
+                TOPICS
+              </p>
+              {listTopic?.map((item, index) => {
+                return (
+                  <p
+                    key={index}
+                    className={cx(
+                      "item-topic",
+                      "text-[black] uppercase rounded-[2px] text-[14px] border-[1px] px-[12px] py-[7px] border-black"
+                    )}
+                  >
+                    {item}
+                  </p>
+                );
+              })}
+            </div>
+          </ScrollReveal>
         </div>
       </header>
 
       <div className="w-full h-auto pt-[100px] px-[20px] md:px-[60px]">
-        <HealthBlog classNameTitle={"hidden"} dataBlog={listData} />
+        <ScrollReveal delay={400}>
+          <HealthBlog classNameTitle={"hidden"} dataBlog={listData} />
+
+        </ScrollReveal>
       </div>
     </div>
   );
