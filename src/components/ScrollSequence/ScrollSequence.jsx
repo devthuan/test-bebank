@@ -10,6 +10,7 @@ const ScrollSequence = () => {
   const prevScrollY = useRef(0);
 
   useEffect(() => {
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY; // Lấy giá trị scrollY hiện tại
       setScrollY(currentScrollY); // Cập nhật state scrollY

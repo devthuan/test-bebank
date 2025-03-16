@@ -8,9 +8,11 @@ import DragToScroll from "../../components/DragToScroll/DragToScroll";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
 import Footer from "../../layouts/components/Footer/Footer";
 import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
+import useDelayRender from "../../hooks/useDelayRender";
 
 const cx = classNames.bind(styles);
 const Services = () => {
+  const isReady = useDelayRender(1200);
   const items = [
     {
       title: "Certified Naturopath TEN (in Training)",
@@ -51,122 +53,129 @@ const Services = () => {
   ];
 
   return (
-    <div className="h-full w-full">
-      <div className="h-auto w-full  sm:px-8 lg:px-[60px]">
-        <div className="w-full h-full">
-          <ScrollReveal>
-            <h1 className="text-[47px] lg:text-[166px] text-center mt-[133px] sm:mt-24 lg:mt-[153px] tracking-tight sm:tracking-normal lg:tracking-[-8px]">
-              Atlasology Plus
-            </h1>
-          </ScrollReveal>
-          <img
-            alt="images"
-            src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659ab96b20d886f0cb06285a_pli-background-default.jpg"
-            className="absolute top-0 left-0 w-full object-cover h-[850px]  lg:h-[1400px] z-[-1]"
-          />
-          <ScrollReveal delay={500}>
-            <img
-              alt="images"
-              src="https://cdn.prod.website-files.com/65a289fdf3cf4584881a404d/65bfb83e77a6b18b99b766a2_pli-angebot-atlaslogie.png"
-              className="absolute object-cover top-[-100px] lg:top-[-500px] right-0 left-0 w-full lg:w-[1380px] h-[1000px] lg:h-auto z-[-1]"
-            />
-          </ScrollReveal>
-        </div>
+    <>
+      {isReady && (
+        <div className="h-full w-full">
+          <div className="h-auto w-full  sm:px-8 lg:px-[60px]">
+            <div className="w-full h-full">
+              <ScrollReveal>
+                <h1 className="text-[47px] lg:text-[166px] text-center mt-[133px] sm:mt-24 lg:mt-[153px] tracking-tight sm:tracking-normal lg:tracking-[-8px]">
+                  Atlasology Plus
+                </h1>
+              </ScrollReveal>
+              <img
+                alt="images"
+                src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659ab96b20d886f0cb06285a_pli-background-default.jpg"
+                className="absolute top-0 left-0 w-full object-cover h-[850px]  lg:h-[1400px] z-[-1]"
+              />
+              <ScrollReveal delay={500}>
+                <img
+                  alt="images"
+                  src="https://cdn.prod.website-files.com/65a289fdf3cf4584881a404d/65bfb83e77a6b18b99b766a2_pli-angebot-atlaslogie.png"
+                  className="absolute object-cover top-[-100px] lg:top-[-500px] right-0 left-0 w-full lg:w-[1380px] h-[1000px] lg:h-auto z-[-1]"
+                />
+              </ScrollReveal>
+            </div>
 
-        <div className="px-[30px] mt-[650px]  lg:mt-[850px]">
-          <LineRow padding="py-8 py-16 lg:py-[119px]" />
-          <ScrollReveal>
-            <p className=" text-[30px] lg:text-[66px] leading-[1]">
-              The first cervical vertebra is called atlas — it supports the
-              head. It is of particular importance for all vertebral bodies, as
-              malpositions in this area can have far-reaching effects.
-            </p>
-          </ScrollReveal>
-          <LineRow padding="py-8 py-16 lg:py-[100px]" />
-        </div>
-        <div className="px-[30px]">
-          <Description title="When does atlasology make sense?" data={items} />
-        </div>
-        <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
-        <div className="px-[30px]">
-          <div
-            className={cx(
-              "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-[60px]"
-            )}
-          >
-            <ScrollReveal>
-              <div className="col-span-1 text-[20px] md:text-[30px]">
-                Atlasology explained
+            <div className="px-[30px] mt-[650px]  lg:mt-[850px]">
+              <LineRow padding="py-8 py-16 lg:py-[119px]" />
+              <ScrollReveal>
+                <p className=" text-[30px] lg:text-[66px] leading-[1]">
+                  The first cervical vertebra is called atlas — it supports the
+                  head. It is of particular importance for all vertebral bodies,
+                  as malpositions in this area can have far-reaching effects.
+                </p>
+              </ScrollReveal>
+              <LineRow padding="py-8 py-16 lg:py-[100px]" />
+            </div>
+            <div className="px-[30px]">
+              <Description
+                title="When does atlasology make sense?"
+                data={items}
+              />
+            </div>
+            <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
+            <div className="px-[30px]">
+              <div
+                className={cx(
+                  "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-[60px]"
+                )}
+              >
+                <ScrollReveal>
+                  <div className="col-span-1 text-[20px] md:text-[30px]">
+                    Atlasology explained
+                  </div>
+                </ScrollReveal>
+                <ScrollReveal delay={200} className="col-span-2">
+                  <div className="col-span-2">
+                    {dataDescriptions?.map((item, index) => {
+                      return (
+                        <p
+                          className="pb-[10px] text-[14px] md:text-[18px]"
+                          key={index}
+                        >
+                          {item}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </ScrollReveal>
               </div>
-            </ScrollReveal>
-            <ScrollReveal delay={200} className="col-span-2">
-              <div className="col-span-2">
-                {dataDescriptions?.map((item, index) => {
-                  return (
-                    <p
-                      className="pb-[10px] text-[14px] md:text-[18px]"
-                      key={index}
-                    >
-                      {item}
-                    </p>
-                  );
-                })}
+            </div>
+            <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
+            <div className="px-[30px] grid grid-cols-1 md:grid-cols-2 gap-6">
+              {dataBlocks?.map((item, index) => {
+                return (
+                  <div className="" key={index}>
+                    <Block title={item.title} content={item.content} />
+                  </div>
+                );
+              })}
+            </div>
+            <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
+            <div className="px-[30px] w-full flex flex-col items-center">
+              <div className="w-full  text-center mt-8 sm:mt-12 lg:mt-[30px]">
+                <ScrollReveal>
+                  <h1 className="text-[42px]  lg:text-[156px] text-start pl-8 sm:pl-24 lg:pl-[200px]">
+                    Start now
+                  </h1>
+                </ScrollReveal>
+                <ScrollReveal delay={200}>
+                  <h1 className="text-[42px] w-full  lg:text-[156px] flex  justify-between ">
+                    <span className="text-[42px]  lg:text-[156px]">into a</span>
+                    <span className="text-[42px]  lg:text-[156px]">
+                      better life
+                    </span>
+                  </h1>
+                </ScrollReveal>
+                <ScrollReveal delay={400}>
+                  <h1 className="text-[42px]  lg:text-[156px] text-right mr-4 sm:mr-8 lg:mr-[70px]">
+                    for yourself
+                  </h1>
+                </ScrollReveal>
               </div>
-            </ScrollReveal>
-          </div>
-        </div>
-        <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
-        <div className="px-[30px] grid grid-cols-1 md:grid-cols-2 gap-6">
-          {dataBlocks?.map((item, index) => {
-            return (
-              <div className="" key={index}>
-                <Block title={item.title} content={item.content} />
-              </div>
-            );
-          })}
-        </div>
-        <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
-        <div className="px-[30px] w-full flex flex-col items-center">
-          <div className="w-full  text-center mt-8 sm:mt-12 lg:mt-[30px]">
-            <ScrollReveal>
-              <h1 className="text-[42px]  lg:text-[156px] text-start pl-8 sm:pl-24 lg:pl-[200px]">
-                Start now
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <h1 className="text-[42px] w-full  lg:text-[156px] flex  justify-between ">
-                <span className="text-[42px]  lg:text-[156px]">into a</span>
-                <span className="text-[42px]  lg:text-[156px]">
-                  better life
+              <button className={cx("button-with-icon", "mt-[60px]")}>
+                <span className={cx("icon")}>
+                  <ArrowRightIcon />
                 </span>
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal delay={400}>
-              <h1 className="text-[42px]  lg:text-[156px] text-right mr-4 sm:mr-8 lg:mr-[70px]">
-                for yourself
-              </h1>
-            </ScrollReveal>
+                <span className={cx("text", "text-[16px] font-medium")}>
+                  Book appointment
+                </span>
+              </button>
+            </div>
+            <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
           </div>
-          <button className={cx("button-with-icon", "mt-[60px]")}>
-            <span className={cx("icon")}>
-              <ArrowRightIcon />
-            </span>
-            <span className={cx("text", "text-[16px] font-medium")}>
-              Book appointment
-            </span>
-          </button>
-        </div>
-        <LineRow padding="px-[30px] py-[50px] md:py-[100px]" />
-      </div>
-      <div className="mt-[-30px] md:mt-[-60px]">
-        <TitleComponent title="More Services" />
-        <DragToScroll />
-      </div>
+          <div className="mt-[-30px] md:mt-[-60px]">
+            <TitleComponent title="More Services" />
+            <DragToScroll />
+          </div>
 
-      <div className="mt-[-15px] md:mt-[-30px]">
-        <Footer hiddenSupport="true" />
-      </div>
-    </div>
+          <div className="mt-[-15px] md:mt-[-30px]">
+            <Footer hiddenSupport="true" />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

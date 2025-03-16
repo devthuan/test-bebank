@@ -11,10 +11,13 @@ import Block from "../../components/Block/Block";
 import ScrollSequence from "../../components/ScrollSequence/ScrollSequence";
 import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
 import ScrollSequenceGirl from "../../components/ScrollSequenceGirl/ScrollSequenceGirl";
+import useDelayRender from "../../hooks/useDelayRender";
 
 // eslint-disable-next-line no-unused-vars
 const cx = classNames.bind(styles);
 const Home = () => {
+  
+  const isReady = useDelayRender(1200);
   const imageRef = useRef(null); // Ref để theo dõi phần tử ảnh
   const [isFullScreen, setIsFullScreen] = useState(false); // State để kiểm soát hiệu ứng
 
@@ -114,6 +117,8 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+    {isReady && 
     <div className="h-auto w-full mx-auto">
       <img
         src="https://cdn.prod.website-files.com/659ab65ceabb05549e0dc188/659ab96b20d886f0cb06285a_pli-background-default.jpg"
@@ -257,6 +262,8 @@ const Home = () => {
         <HealthBlog dataBlog={listDataBlog} />
       </div>
     </div>
+    }
+    </>
   );
 };
 

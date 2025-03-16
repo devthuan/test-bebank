@@ -279,22 +279,22 @@ const dropMenu = ({ hoverIndex, setHoverIndex }) => {
                 onMouseEnter={() => setHoverIndex(index)} // Cập nhật index khi hover
                 onMouseLeave={() => setHoverIndex(null)} // Reset khi rời chuột
               >
-                <div
-                  className={cx(
-                    "wrap-text",
-                    "flex w-full pl-[5px] h-full justify-between"
-                  )}
-                >
-                  <a
-                    to={item.url}
-                    className="flex w-full pl-[5px] h-full justify-between"
+                  <div
+                    className={cx(
+                      "wrap-text",
+                      "flex w-full pl-[5px] h-full justify-between"
+                    )}
                   >
-                    <span>{item.title}</span>
-                    <span className={cx("icon")}>
-                      <PlusIcon width="19" />
-                    </span>
-                  </a>
-                </div>
+                    <Link
+                      to={item.url}
+                      className="flex w-full pl-[5px] h-full justify-between"
+                    >
+                      <span>{item.title}</span>
+                      <span className={cx("icon")}>
+                        <PlusIcon width="19" />
+                      </span>
+                    </Link>
+                  </div>
               </li>
             ))}
           </ul>

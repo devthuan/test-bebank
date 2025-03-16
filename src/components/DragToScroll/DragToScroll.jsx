@@ -8,9 +8,19 @@ const cx = classNames.bind(styles);
 
 const DragToScroll = () => {
   const [isDragging, setIsDragging] = useState(false);
+  const [isMouseDown, setMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const containerRef = useRef(null);
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMoveB = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - 25; // Căn giữa block với con trỏ
+    const y = e.clientY - rect.top - 400; // Căn giữa block với con trỏ
+    setPosition({ x, y });
+  };
 
   const dataItemProductService = [
     {
@@ -45,11 +55,14 @@ const DragToScroll = () => {
     setIsDragging(true);
     setStartX(e.pageX - containerRef.current.offsetLeft);
     setScrollLeft(containerRef.current.scrollLeft);
+    setMouseDown(true);
   };
 
   // Kết thúc kéo
   const handleMouseUp = () => {
     setIsDragging(false);
+    setMouseDown(false);
+
   };
 
   // Khi di chuyển chuột
@@ -57,24 +70,37 @@ const DragToScroll = () => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Tốc độ kéo
+    const walk = x - startX; // Tốc độ kéo
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
     <div
-      className={cx("h-[683px] overflow-hidden relative flex items-center ")}
+      className={cx(
+        "h-[683px] w-full overflow-hidden relative flex items-center "
+      )}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} // Kết thúc kéo nếu chuột rời khỏi container
       onMouseMove={handleMouseMove}
     >
       <div
+        className={cx(  
+          isMouseDown ? "text-red" : "",
+          " cursor-pointer w-[70px] h-[70px] bg-black text-white flex justify-center items-center rounded-full absolute z-10 transition-transform ease-out duration-100"
+        )}
+        style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+      >
+        Drag
+      </div>
+      <div
         ref={containerRef}
         className={cx(
           "flex h-auto md:h-full lg:h-full w-full gap-[20px] overflow-x-hidden scroll-snap-type-x-mandatory scrollbar-hide cursor-grab"
         )}
         style={{ userSelect: "none" }} // Ngăn chọn văn bản khi kéo
+        onMouseMove={handleMouseMoveB}
+        onMouseUp={handleMouseUp} // Kết thúc kéo nếu chuột rời khỏi container
       >
         {dataItemProductService.map((item, index) => (
           <div
