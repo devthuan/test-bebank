@@ -11,7 +11,6 @@ import Block from "../../components/Block/Block";
 import ScrollSequence from "../../components/ScrollSequence/ScrollSequence";
 import ScrollReveal from "../../components/ScrollReveal/ScrollReveal";
 import ScrollSequenceGirl from "../../components/ScrollSequenceGirl/ScrollSequenceGirl";
-import ScrollTriggerAnimation from "../../components/ScrollTriggerAnimation/ScrollTriggerAnimation";
 
 // eslint-disable-next-line no-unused-vars
 const cx = classNames.bind(styles);

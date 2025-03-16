@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { LogoIcon, PlusIcon, TopArrowIcon } from "../../../components/Icons";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 const cx = classNames.bind(styles);
 
 const Header = ({ className }) => {
@@ -68,7 +68,7 @@ const Header = ({ className }) => {
         {/* Desktop Navigation */}
         <div className="hidden lg:block w-[400px]">
           <ul className="flex w-full gap-3 mt-[10px]">
-            <NavLink to={"/"}>
+            <Link to={"/"}>
               <li
                 className={cx(
                   "item",
@@ -77,7 +77,7 @@ const Header = ({ className }) => {
               >
                 HOME
               </li>
-            </NavLink>
+            </Link>
             <li
               className={cx("item", "dropdown", "text-[14px] font-normal")}
               onMouseEnter={() => setIsDropdownOpen(true)}
@@ -285,7 +285,7 @@ const dropMenu = ({ hoverIndex, setHoverIndex }) => {
                     "flex w-full pl-[5px] h-full justify-between"
                   )}
                 >
-                  <NavLink
+                  <a
                     to={item.url}
                     className="flex w-full pl-[5px] h-full justify-between"
                   >
@@ -293,7 +293,7 @@ const dropMenu = ({ hoverIndex, setHoverIndex }) => {
                     <span className={cx("icon")}>
                       <PlusIcon width="19" />
                     </span>
-                  </NavLink>
+                  </a>
                 </div>
               </li>
             ))}

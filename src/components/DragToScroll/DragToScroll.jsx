@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { ArrowRightIcon } from "../Icons";
 import classNames from "classnames/bind";
 import styles from "./DragToScroll.module.scss";
+import { NavLink } from "react-router";
 
 const cx = classNames.bind(styles);
 
@@ -96,22 +97,26 @@ const DragToScroll = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-[42px]">
                 {item.title}
               </h1>
-              <button
-                className={cx("button-with-icon", "mt-4 sm:mt-6 lg:mt-[20px]")}
-              >
-                <span className={cx("icon")}>
-                  <ArrowRightIcon />
-                </span>
-                <span
+              <NavLink to={"/services"}>
+                <button
                   className={cx(
-                    "text",
-                    "text-[16px] sm:text-[12px] md:text-[14px]"
+                    "button-with-icon",
+                    "mt-4 sm:mt-6 lg:mt-[20px]"
                   )}
                 >
-                  Learn more
-                </span>{" "}
-                {/* Responsive button text size */}
-              </button>
+                  <span className={cx("icon")}>
+                    <ArrowRightIcon />
+                  </span>
+                  <span
+                    className={cx(
+                      "text",
+                      "text-[16px] sm:text-[12px] md:text-[14px]"
+                    )}
+                  >
+                    Learn more
+                  </span>{" "}
+                </button>
+              </NavLink>
             </div>
           </div>
         ))}
