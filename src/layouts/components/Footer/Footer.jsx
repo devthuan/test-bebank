@@ -30,17 +30,17 @@ const Footer = ({ hiddenSupport = false }) => {
 
   return (
     <div className="h-full w-full">
-      {hiddenSupport ? (
-        ""
-      ) : (
-        <>
-          <LineRow padding="py-[120px] px-[30px] md:px-16 lg:py-[60px]" />
-          <div className="w-full px-[30px] md:px-16 mx-auto">
-            <Support />
-          </div>
-        </>
-      )}
-      <ScrollReveal>
+      <ScrollReveal delay={1200}>
+        {hiddenSupport ? (
+          ""
+        ) : (
+          <>
+            <LineRow padding="py-[120px] px-[30px] md:px-16 lg:py-[60px]" />
+            <div className="w-full px-[30px] md:px-16 mx-auto">
+              <Support />
+            </div>
+          </>
+        )}
         <div
           className={cx(
             "relative px-[0] flex flex-col md:flex-row h-full md:h-[437px] w-full"
@@ -146,7 +146,6 @@ const Footer = ({ hiddenSupport = false }) => {
             </div>
           </div>
         </div>
-        
       </ScrollReveal>
     </div>
   );
